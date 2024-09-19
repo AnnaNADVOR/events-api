@@ -6,7 +6,7 @@ const {
 const { Event } = require("../models/eventModel");
 
 const getAllEvents = async (_, res) => {
-    const result = await Event.find().limit(6).offset(3);
+    const result = await Event.find();
     res.json(result);      
 };
 
