@@ -17,8 +17,7 @@ const participantSchema = new Schema(
     userEmail: {
       type: String,
       match: emailRegexp,
-      required: [true, "Email is required"],
-      unique: true,
+      required: [true, "Email is required"],      
     },
     userBirthDate: {
       type: Date,
