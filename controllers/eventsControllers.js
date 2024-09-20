@@ -10,7 +10,7 @@ const getAllEvents = async (_, res) => {
     res.json(result);      
 };
 
-const getEventById = async (req, res) => {
+const getParticipantsByEventId = async (req, res) => {
     const { id } = req.params;
     const result = await Event.findById(id);
     if (!result) {
@@ -22,5 +22,5 @@ const getEventById = async (req, res) => {
 
 module.exports = {
     getAllEvents: controllerWrapper(getAllEvents),
-    getEventById: controllerWrapper(getEventById),   
+    getParticipantsByEventId: controllerWrapper(getParticipantsByEventId),   
 }

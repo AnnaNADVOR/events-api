@@ -21,13 +21,13 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
-    participants: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Participant",
-        required: true,
-      },
-    ],
+    // participants: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Participant",
+    //     required: true,
+    //   },
+    // ],
   },
   { versionKey: false, timestamps: true }
 );
