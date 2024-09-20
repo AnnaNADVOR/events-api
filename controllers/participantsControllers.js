@@ -15,6 +15,17 @@ const createParticipant = async (req, res) => {
     res.status(201).json(result)
 }
 
+
+const getParticipantsByEventId = async (req, res) => {
+    const { eventId } = req.query;
+    const result = await Participant.find({ eventId });
+    if (!result) {
+        throw HttpError(404, "Not found");
+    }
+    res.json(result);
+};
+
 module.exports = {  
-    createParticipant: controllerWrapper(createParticipant),    
+    createParticipant: controllerWrapper(createParticipant),   
+    getParticipantsByEventId: controllerWrapper(getParticipantsByEventId),  
 }

@@ -1,26 +1,24 @@
-const {
-    HttpError,
-    controllerWrapper,
-} = require("../helpers");
+const { HttpError, controllerWrapper } = require("../helpers");
 
 const { Event } = require("../models/eventModel");
 
 const getAllEvents = async (_, res) => {
-    const result = await Event.find();
-    res.json(result);      
+  const result = await Event.find();
+  res.json(result);
 };
 
-const getParticipantsByEventId = async (req, res) => {
+const getEventById = async (req, res) => {
     const { id } = req.params;
-    const result = await Event.findById(id);
+    const result = await Event.findById( id );
     if (!result) {
-        throw HttpError(404, "Not found");     
+        throw HttpError(404, "Not found");
     }
-    res.json(result);    
-};
-
+    res.json(result);
+}
 
 module.exports = {
     getAllEvents: controllerWrapper(getAllEvents),
-    getParticipantsByEventId: controllerWrapper(getParticipantsByEventId),   
-}
+    getEventById: controllerWrapper(getEventById),
+};
+
+

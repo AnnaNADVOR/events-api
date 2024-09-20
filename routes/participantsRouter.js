@@ -1,18 +1,15 @@
 const express = require("express");
-// const {
-//     validateBody,
-//     authenticate,
-//     upload,
-// } = require("../middlewares");
 
-// const { schemas } = require("../models/userModel");
 const {
-  createParticipant,   
+  createParticipant,
+  getParticipantsByEventId,   
 } = require("../controllers/participantsControllers");
 
 const participantsRouter = express.Router();
 
 participantsRouter.post("/", createParticipant);
+
+participantsRouter.get("/", getParticipantsByEventId)
 
 module.exports = participantsRouter; 
 
