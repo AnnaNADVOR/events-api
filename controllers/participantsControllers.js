@@ -7,7 +7,7 @@ const { Participant } = require('../models/participantModel');
 
 const createParticipant = async (req, res) => {
     const { eventId, userFullName, userEmail, userBirthDate, infoSource } = req.body;
-    const participant = await Contact.exists({ eventId, userFullName, userEmail, userBirthDate, infoSource });
+    const participant = await Participant.exists({ eventId, userFullName, userEmail, userBirthDate, infoSource });
     if (participant) {
         throw HttpError(409, 'Such a member is already registered');
     }
