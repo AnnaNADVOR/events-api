@@ -1,5 +1,6 @@
 const { mongoose } = require("mongoose");
 const { Schema } = require("mongoose");
+const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
 
 const emailRegexp = /^[a-zA-Z0-9.-_]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
@@ -35,6 +36,15 @@ participantSchema.post("save", handleMongooseError);
 
 const Participant = mongoose.model("Participant", participantSchema);
 
+const addParticipantSchema = Joi.object({
+  eventId: Joi.string().required(),
+  userFullName: Joi.string().required(),
+  userEmail: Joi.string().email().required(),
+  userBirthDate: Joi.date().required(),
+  infoSource: Joi.string().required(),
+});
+
 module.exports = {
   Participant,
+  addParticipantSchema,
 };

@@ -5,9 +5,12 @@ const {
   getParticipantsByEventId,   
 } = require("../controllers/participantsControllers");
 
+const { validateBody } = require('../middlewares');
+const { addParticipantSchema } = require('../models/participantModel');
+
 const participantsRouter = express.Router();
 
-participantsRouter.post("/", createParticipant);
+participantsRouter.post("/", validateBody(addParticipantSchema), createParticipant);
 
 participantsRouter.get("/", getParticipantsByEventId)
 

@@ -21,13 +21,6 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
-    // participants: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Participant",
-    //     required: true,
-    //   },
-    // ],
   },
   { versionKey: false, timestamps: true }
 );
@@ -36,8 +29,6 @@ eventSchema.post("save", handleMongooseError);
 
 const Event = mongoose.model("Event", eventSchema);
 
-
 module.exports = {
   Event,
-  
 };

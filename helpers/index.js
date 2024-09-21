@@ -1,6 +1,6 @@
 const HttpError = require("./HttpError");
 const controllerWrapper = require("./controllerWrapper");
-const validateBody = require("./validateBody");
+const validateBody = require("../middlewares/validateBody");
 const handleMongooseError = require("./handleMongooseError");
 
 module.exports = {
