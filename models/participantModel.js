@@ -39,7 +39,7 @@ const Participant = mongoose.model("Participant", participantSchema);
 const addParticipantSchema = Joi.object({
   eventId: Joi.string().required(),
   userFullName: Joi.string().required(),
-  userEmail: Joi.string().email().required(),
+  userEmail: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).pattern(emailRegexp).required(),
   userBirthDate: Joi.date().required(),
   infoSource: Joi.string().required(),
 });
